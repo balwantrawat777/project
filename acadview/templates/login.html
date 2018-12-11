@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block body %}
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Github Profile Analyzer</a>
+    </div>
+  </div>
+</nav>
+<form action="/signin/" method="post" style="padding-top: 50px; ">
+    <div class="form-container">
+        <div class="form-header">
+            <h1 class="unselectable">Sign in with Github Account</h1>
+        </div>
+        <div class="form-login">
+          <label for="userid">Username</label>
+		   <div class="input-group">
+            <div class="input-group-addon">
+	         <span class="glyphicon glyphicon-user"></span> 
+            </div>
+		   </div>
+		   
+           <input type="text" id="userid" name="userid" class="input_field" required value="{{request.form.userid}}" autofocus="on" />
+          <label for="password">Password </label>
+		   <div class="input-group">
+            <div class="input-group-addon">
+	         <span class="glyphicon glyphicon-asterisk"></span>
+            </div>
+           </div>
+          
+
+          <input type="password" id="password" name="password" class="input_field" required value="{{request.form.password}}" />
+          
+
+          <input type="submit" class="btn btn-primary btn-block"/>
+          <div>
+          {% if error %}
+            <p style="color: red;margin:4px;">Error: {{ error }} </p>
+          {% endif %}            
+          </div>
+        </div>
+        <div class="form-register">
+            <p  class="create-account">Build  by <span class="glyphicon glyphicon-user"></span> <a target="_blank" style="text-decoration: none;color: #ff0000" href="https://github.com/balwantrawat777"><b>Balwant</b></a></p>
+        </div>
+    </div>
+  </form>
+</body>
+  
+{% endblock %}
